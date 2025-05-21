@@ -25,18 +25,32 @@
   </style>
   <script>
     function openApp() {
-      const now = Date.now();
-      window.location = "intent://lrs-attendee.compusystems.com/m3stag?code=YLGF-99-658-35?anonymous_id=17466031906428617?is_expo=true?show_code=true#Intent;scheme=https;package=com.compusystems.lrsattendeestaging;end";
+      const timeout = 1500;
+      let hasHidden = false;
+
+      // Listen for page visibility change
+      const handleVisibilityChange = () => {
+        if (document.hidden) {
+          hasHidden = true;
+        }
+      };
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+
+      // Launch the app
+      window.location = "intent://lrs-attendee.compusystems.com/m3stag?code=YLGF-99-658-35&anonymous_id=17466031906428617&is_expo=true&show_code=true#Intent;scheme=https;package=com.compusystems.lrsattendeestaging;end";
+
+      // Fallback only if app didn’t open
       setTimeout(() => {
-        if (Date.now() - now < 2000) {
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+        if (!hasHidden) {
           window.location.href = "https://play.google.com/store/apps/details?id=com.compusystems.lrsattendeestaging";
         }
-      }, 1500);
+      }, timeout);
     }
   </script>
 </head>
 <body>
-  <h2>Open final App</h2>
+  <h2>Open the App</h2>
   <button onclick="openApp()">Open App</button>
   <p>If the app is not installed, you’ll be redirected to the Play Store.</p>
 </body>
