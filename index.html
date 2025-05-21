@@ -4,26 +4,44 @@
   <meta charset="UTF-8">
   <title>Open App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
   <script>
     function openApp() {
       const now = Date.now();
 
-      // Open the app using intent://
+      // Attempt to open app using intent://
       window.location = "intent://m3stag?code=YLGF-99-658-35&anonymous_id=17466031906428617&is_expo=true&show_code=true#Intent;scheme=https;package=com.compusystems.lrsattendeestaging;end";
 
-      // If app is not installed, fallback to Play Store after short delay
+      // If app is not installed, redirect to Play Store after timeout
       setTimeout(() => {
         if (Date.now() - now < 2000) {
           window.location.href = "https://play.google.com/store/apps/details?id=com.compusystems.lrsattendeestaging";
         }
       }, 1500);
     }
-
-    window.onload = openApp;
   </script>
 </head>
 <body>
-  <h2>Opening the app...</h2>
-  <p>If nothing happens, <a href="https://play.google.com/store/apps/details?id=com.compusystems.lrsattendeestaging">click here to install the app</a>.</p>
+  <h2>Open the App</h2>
+  <button onclick="openApp()">Open App</button>
+  <p>If the app is not installed, you’ll be redirected to the Play Store.</p>
 </body>
 </html>
