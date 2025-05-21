@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Open App</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function openApp() {
+      const now = Date.now();
+
+      // Open the app using intent://
+      window.location = "intent://m3stag?code=YLGF-99-658-35&anonymous_id=17466031906428617&is_expo=true&show_code=true#Intent;scheme=https;package=com.compusystems.lrsattendeestaging;end";
+
+      // If app is not installed, fallback to Play Store after short delay
+      setTimeout(() => {
+        if (Date.now() - now < 2000) {
+          window.location.href = "https://play.google.com/store/apps/details?id=com.compusystems.lrsattendeestaging";
+        }
+      }, 1500);
     }
-    a.button {
-      padding: 16px 32px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    a.button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+
+    window.onload = openApp;
+  </script>
 </head>
 <body>
-  <a href="intent://m3stag?code=YLGF-99-658-35&anonymous_id=17466031906428617&is_expo=true&show_code=true#Intent;scheme=https;package=com.compusystems.lrsattendeestaging;end">
-  Open A
-</a>
-
+  <h2>Opening the app...</h2>
+  <p>If nothing happens, <a href="https://play.google.com/store/apps/details?id=com.compusystems.lrsattendeestaging">click here to install the app</a>.</p>
 </body>
 </html>
