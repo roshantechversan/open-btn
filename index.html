@@ -24,7 +24,19 @@
     }
   </style>
   <script>
+     function copyToClipboard() {
+      const clipboardLink = `https://lrs-attendee.compusystems.com/m3stag?code=YLGF-99-658-35?anonymous_id=17466031906428617?is_expo=true?show_code=true`;
+      navigator.clipboard.writeText(clipboardLink).then(() => {
+        alert("Link copied to clipboard!");
+      }).catch(err => {
+        alert("Failed to copy link.");
+        console.error(err);
+      });
+    }
+
+    
     function openApp() {
+      copyToClipboard();
       const timeout = 1500;
       let hasHidden = false;
 
