@@ -26,11 +26,7 @@
   <script>
     function openApp() {
       const now = Date.now();
-
-      // Attempt to open app using intent://
-      window.location = "intent://m3stag?code=YLGF-99-658-35&anonymous_id=17466031906428617&is_expo=true&show_code=true#Intent;scheme=https;package=com.compusystems.lrsattendeestaging;end";
-
-      // If app is not installed, redirect to Play Store after timeout
+      window.location = "intent://lrs-attendee.compusystems.com/m3stag?code=YLGF-99-658-35&anonymous_id=17466031906428617&is_expo=true&show_code=true#Intent;scheme=https;package=com.compusystems.lrsattendeestaging;end";
       setTimeout(() => {
         if (Date.now() - now < 2000) {
           window.location.href = "https://play.google.com/store/apps/details?id=com.compusystems.lrsattendeestaging";
@@ -40,7 +36,7 @@
   </script>
 </head>
 <body>
-  <h2>Open the App</h2>
+  <h2>Open final App</h2>
   <button onclick="openApp()">Open App</button>
   <p>If the app is not installed, you’ll be redirected to the Play Store.</p>
 </body>
